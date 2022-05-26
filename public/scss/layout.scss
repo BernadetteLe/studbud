@@ -1,0 +1,43 @@
+.container {  
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 4% 1fr 10% 1.5%;
+  grid-template-rows: 77px 2% 84px 1% 84px 1fr 5% auto;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header header"
+    ". . . ."
+    ". pomodoro-timer pomodoro-timer ."
+    ". . . ."
+    ". stopwatch-timer stopwatch-timer ."
+    ". main-board . ."
+    ". . . ."
+    ". music-player music-player .";
+}
+
+.header { 
+  grid-area: header; 
+}
+
+.pomodoro-timer {
+  justify-self: end; 
+  align-self: center; 
+  grid-area: pomodoro-timer; 
+}
+.stopwatch-timer {
+  justify-self: end; 
+  align-self: center; 
+  grid-area: stopwatch-timer; 
+}
+
+.main-board { 
+  grid-area: main-board; 
+}
+
+.music-player {
+  justify-self: end; 
+  align-self: end; 
+  grid-area: music-player; 
+}
+

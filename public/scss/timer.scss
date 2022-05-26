@@ -1,0 +1,13 @@
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 84px;
+    height: auto;
+}
+
+.timer p {
+    font-size: 15;
+    font-weight: 1000;
+    margin-right: 20px;
+}

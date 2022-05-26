@@ -1,0 +1,39 @@
+#task-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "tasklist taskform";
+}
+
+// Task inputs
+#taskform {
+    grid-area: taskform;
+    max-width: 300px;
+    margin: 0 auto;
+    label {
+        display: block;
+        width: 100%;
+    }
+}
+
+#taskform label {
+    padding-top: 6px;
+    font-weight: bolder;
+}
+
+#taskform button {
+    float: right;
+    cursor: pointer;
+    color: white;
+    background-color: #6588E6;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 6px;
+    font-weight: bolder;
+}
+
+#tasklist {
+    grid-area: tasklist;
+    text-align: center;
+}

@@ -1,48 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" height: 100%;>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Studbud</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="scss/main.scss" rel="stylesheet" type="text/css" />
+
   </head>
-  <body>
-    <form id="taskform">
-      <label for="task">Task:</label>
-      <input type="text" name="task" id="taskInput">
+  <body style="background-color:#F5F5F5;" min-height: 100%;>
+    <div class="container">
+      <div class="header">
+        <img src="images/studbud-header.svg">
+        <img src="images/studbud-textlogo.svg">
+      </div>
+      <div class="timer pomodoro-timer">
+        <p>Pomodoro</p>
+        <img src="images/pomodoro-button.svg">
+      </div>
+      <div class="timer stopwatch-timer">
+        <p>Stopwatch</p>
+        <img src="images/stopwatch-button.svg">
+      </div>
+      <div class="main-board">
+        <div class="list">
+          <button type="button" class="collapsible">Task Lists</button>
+          <div class="content">
+            <div id="task-grid">
+              <form id="taskform">
+                  <label for="task">Task:</label>
+                  <input type="text" name="task" id="taskInput" required>
 
-      <br>
-    <!-- Date input -->
-      <label for="dueDate">Due Date: </label>
-      <input type="date" name="dueDate" id="dueDateInput">
-      <br>
-    <!-- Time input -->
-    <label for="completionTime">Completion Time: </label>
-      <input type="time" name="completionTime" id="completionTimeInput">
+                  <!-- Date input -->
+                  <label for="dueDate">Due Date: </label>
+                  <input type="date" name="dueDate" id="dueDateInput">
 
-      <br>
+                  <!-- Time input -->
+                  <!-- <label for="completionTime">Completion Time: </label>
+                  <input type="time" name="completionTime" id="completionTimeInput"> -->
 
-    <label for="estimatedTime">Estimated completion time (in mins):</label>
-    <input type="number" name="estimatedTime" id="estimatedTimeInput">
-    <!-- Priority -->
-    <br>
+                  <!-- <label for="estimatedTime">Estimated completion time (in mins):</label> -->
+                  <!-- <input type="number" name="estimatedTime" id="estimatedTimeInput"> -->
+                  <!-- Priority -->
 
-    <label for="priority">Task Priority:</label>
-    <select name="prority" id="priorityInput">
-      <option value="">Select one</option>
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
 
-    <br>
+                  <label for="priority">Task Priority:</label>
+                  <select name="prority" id="priorityInput">
+                      <option value="">Select one</option>
+                      <option value="Low">Low</option>
+                      <option value="Medium">Medium</option>
+                      <option value="High">High</option>
+                  </select>
 
-      <button type="submit">Submit</button>
-    </form>
-    <ul id="tasklist">
-    </ul>
-    <script src="script.js"></script>
-    <!-- Swap the scripts to see the working solution -->
-    <!-- <script src="solution.js"></script> -->
+                  <br>
+
+                  <button type="submit">Submit</button>
+              </form>
+              <div id="tasklist">
+                  <p id="emptyList">No added tasks yet.</p>
+                  <ul></ul>
+              </div>
+          </div>
+          </div>
+        </div>
+        <div class="list">
+          <button type="button" class="collapsible">Reading Lists</button>
+          <div class="content">
+            <p>Reading 1</p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+      <div class="music-player">
+        <img src="images/music-player-button.svg">
+      </div>
+    </div>
+
+  <script type="module" src="script.js"></script>
+
+
+  <!-- <div class="content">
+    <h>Create Task List</h>
+    <span>
+    <div id="task-grid">
+      <form id="taskform">
+          <label for="task">Task List Name:</label>
+          <input type="text" name="task" id="taskInput" required placeholder="Name here...">
+
+          <!-- Date input -->
+          <!-- <label for="dueDate">Due Date: </label>
+          <input type="date" name="dueDate" id="dueDateInput" placeholder="Due date"> -->
+
+          <!-- Priority -->
+          <!-- <label for="priority">Task List Priority:</label>
+          <select name="prority" id="priorityInput" placeholder="Priority">
+              <option value="">Select one</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+          </select>
+          <br>
+          <button type="submit">Submit</button>
+      </form>
+      <div id="tasklist">
+          <p id="emptyList">No created task lists.</p>
+          <ul></ul>
+      </div>
+    </div>
+    </span>
+  </div> -->
+
+
+
+
+
 </body>
 </html>
+
+
