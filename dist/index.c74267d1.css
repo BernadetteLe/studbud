@@ -165,7 +165,6 @@ input, button, textarea, select {
 }
 
 .content {
-  text-align: center;
   max-height: 0;
   width: 420px;
   background-color: #fff;
@@ -236,26 +235,25 @@ input, button, textarea, select {
 }
 
 #task-grid {
-  grid-template: "tasklist taskform" 1fr
+  grid-template: "taskform tasklist" 1fr
   / 1fr 1fr;
   display: grid;
 }
 
 #taskform {
-  max-width: 300px;
+  text-align: left;
   grid-area: taskform;
-  margin: 0 auto;
+  margin: 5px;
 }
 
 #taskform label {
-  width: 100%;
   padding-top: 6px;
   font-weight: bolder;
   display: block;
 }
 
 #taskform button {
-  float: right;
+  float: left;
   cursor: pointer;
   color: #fff;
   background-color: #6588e6;
@@ -266,9 +264,10 @@ input, button, textarea, select {
   font-weight: bolder;
 }
 
-#tasklist {
+#emptyList {
+  vertical-align: baseline;
   text-align: center;
-  grid-area: tasklist;
+  padding-top: 50%;
 }
 
 /*# sourceMappingURL=index.c74267d1.css.map */

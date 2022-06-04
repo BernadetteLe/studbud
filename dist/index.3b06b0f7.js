@@ -572,14 +572,22 @@ function renderTask(task1) {
     updateEmpty();
     // Create HTML elements
     let item = document.createElement("li");
+    item.style.cssText = 'padding: 0px 5px 0px 5px; text-align:left; border:2px solid #799bf7; border-radius:5px; list-style:none; margin:5px;';
     item.setAttribute('data-id', task1.id);
-    item.innerHTML = "<p>" + task1.taskDescription + "</p>";
+    item.innerHTML = "<p><b>" + task1.taskDescription + "</b>" + "<br/>" + "DUE: " + task1.dueDate + "<br/>" + "PRIORITY: " + task1.priorityRating + "</p>";
     tasklist.appendChild(item);
     // Extra Task DOM elements
     let delButton = document.createElement("button");
-    let delButtonText = document.createTextNode("Delete Task");
+    let delButtonText = document.createTextNode("Delete");
+    delButton.style.cssText = 'border:none; font-weight:bolder; background-color: #D1D0D6; color:white; cursor:pointer; border-radius: 5px; margin:5px 0px 5px 0px;';
     delButton.appendChild(delButtonText);
     item.appendChild(delButton);
+    let expandButton = document.createElement("button");
+    expandButton.className = "expand";
+    expandButton.style.cssText = 'border: solid 1px #6588E6; border-radius: 5px; background-color: white; color: #6588E6; font-size: 120%; font-weight: bolder; float:right; cursor:pointer;';
+    let expandButtonText = document.createTextNode("+");
+    expandButton.appendChild(expandButtonText);
+    item.appendChild(expandButton);
     // Event Listeners for DOM elements
     delButton.addEventListener("click", function(event) {
         event.preventDefault();
@@ -612,6 +620,14 @@ for(i = 0; i < coll.length; i++)coll[i].addEventListener("click", function() {
     var content = this.nextElementSibling;
     if (content.style.maxHeight) content.style.maxHeight = null;
     else content.style.maxHeight = content.scrollHeight + "px";
+});
+var open = document.getElementsByClassName("expand");
+var j;
+for(j = 0; j < open.length; j++)open[j].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var kanban = this.nextElementSibling;
+    if (kanban.style.maxHeight) kanban.style.maxHeight = null;
+    else kanban.style.maxHeight = kanban.scrollHeight + "px";
 });
 
 },{}]},["2xDT7","2OD7o"], "2OD7o", "parcelRequire60da")

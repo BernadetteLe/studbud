@@ -2,17 +2,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "tasklist taskform";
+    grid-template-areas: "taskform tasklist";
 }
 
 // Task inputs
 #taskform {
+    text-align: left;
     grid-area: taskform;
-    max-width: 300px;
-    margin: 0 auto;
+    margin: 5px;
     label {
         display: block;
-        width: 100%;
     }
 }
 
@@ -22,7 +21,7 @@
 }
 
 #taskform button {
-    float: right;
+    float: left;
     cursor: pointer;
     color: white;
     background-color: #6588E6;
@@ -33,7 +32,9 @@
     font-weight: bolder;
 }
 
-#tasklist {
-    grid-area: tasklist;
+#emptyList {
+    vertical-align: baseline;
+    padding-top: 50%;
     text-align: center;
 }
+
