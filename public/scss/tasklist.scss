@@ -31,7 +31,15 @@
     padding: 6px;
     font-weight: bolder;
 }
-
+.taskListItem {
+    padding: 0px 5px 0px 5px; text-align:left; border:2px solid #799bf7; border-radius:5px; list-style:none; margin:5px;
+}
+.expandBtn {
+    border: solid 1px #6588E6; border-radius: 5px; background-color: white; color: #6588E6; font-size: 120%; font-weight: bolder; float:right; cursor:pointer;
+}
+.delButton {
+    border:none; font-weight:bolder; background-color: #D1D0D6; color:white; cursor:pointer; border-radius: 5px; margin:5px 0px 5px 0px;
+}
 #emptyList {
     vertical-align: baseline;
     padding-top: 50%;

@@ -1,0 +1,160 @@
+.kanban {
+    min-width: 90%;
+    margin: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid #6588E6;
+    border-radius: 30px;
+    background-color: #6588E6;
+    box-shadow: 2px 2px 5px gray;
+  }
+  
+  .kanban-heading {
+    flex-direction: row;
+  }
+  
+  .kanban-board {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+  }
+  
+  .kanban-heading-text {
+    color: white;
+    padding: 0.8rem 1.7rem;
+  }
+  
+  .kanban-info {
+    color: white;
+    float: right;
+    text-align: right;
+    padding: 5px 40px 0px 0px;
+    font-size: 15px;
+  }
+
+  .kanban-block,
+  .create-new-task-block {
+    padding: 0.6rem;
+    width: 50%;
+    min-width: 14rem;
+    min-height: 3.5rem;
+    border: 1px solid #6588E6;
+    box-shadow: inset 2px 2px 5px gray;
+  }
+
+  .kanban-block strong {
+    text-align: center;
+  }
+
+  #todo {
+    background-color: white;
+    border-radius: 0px 0px 0px 30px;
+  }
+  
+  #inprogress {
+    background-color: whitesmoke;
+    
+  }
+  
+  #done {
+    background-color: white;
+    border-radius: 0px 0px 30px 0px;
+  }
+  
+  .task {
+    background-color: white;
+    margin: 0.2rem 0rem 0.3rem 0rem;
+    border: 0.1rem solid black;
+    border-radius: 0.2rem;
+    padding: 0.5rem 0.2rem 0.5rem 0.5rem;
+    font-size: 15px;
+
+  }
+  
+  #task-button {
+    margin: 0.2rem 0rem 0.1rem 0rem;
+    background-color: white;
+    border-radius: 0.2rem;
+    width: 50%;
+    border: 2px solid #6588E6;
+    padding: 10px;
+    border-radius: 0.3rem;
+    color: #6588E6;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+  .create-new-task-block {
+    display: none;
+    background-color: white;
+    border-radius: 0px 0px 30px 0px;
+    box-shadow: inset 2px 2px 5px gray;
+    width: 64.4%;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: row;
+    margin: 0.2rem;
+  }
+  
+  .form-row-label {
+    width: 22%;
+    padding: 0.2rem;
+    padding-right: 0.5rem;
+    border: none;
+    border-right: 0;
+    border-radius: 0.2rem 0rem 0rem 0.2rem;
+    font-size: 15px;
+    font-weight: bolder;
+    background-color: #D1D0D6;
+  }
+  
+  .form-row-input {
+    border: 1px solid #D1D0D6;
+    border-radius: 0rem 0.2rem 0.2rem 0rem;
+    width: 85%;
+    font-size: 15px;
+
+  }
+  
+  .form-row-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.2rem;
+  }
+  
+  #edit-button,
+  #save-button {
+    float: left;
+    cursor: pointer;
+    color: white;
+    background-color: #6588E6;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 6px;
+    font-size: 15px;
+    font-weight: bolder;
+    width: 70px;
+  }
+
+  #cancel-button {
+    border:none; 
+    font-size: 15px;
+    font-weight:bolder;
+    background-color: #D1D0D6; 
+    color:white; 
+    cursor:pointer; 
+    border-radius: 5px; 
+    margin:5px 0px 5px 0px;
+    width: 70px;
+}
+  
+  #edit-button {
+    display: none;
+  }
+  

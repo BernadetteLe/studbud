@@ -264,10 +264,192 @@ input, button, textarea, select {
   font-weight: bolder;
 }
 
+.taskListItem {
+  text-align: left;
+  border: 2px solid #799bf7;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 0 5px;
+  list-style: none;
+}
+
+.expandBtn {
+  color: #6588e6;
+  float: right;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #6588e6;
+  border-radius: 5px;
+  font-size: 120%;
+  font-weight: bolder;
+}
+
+.delButton {
+  color: #fff;
+  cursor: pointer;
+  background-color: #d1d0d6;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+  font-weight: bolder;
+}
+
 #emptyList {
   vertical-align: baseline;
   text-align: center;
   padding-top: 50%;
+}
+
+.kanban {
+  min-width: 90%;
+  background-color: #6588e6;
+  border: 5px solid #6588e6;
+  border-radius: 30px;
+  flex-direction: column;
+  margin: 80px 20px;
+  display: flex;
+  box-shadow: 2px 2px 5px gray;
+}
+
+.kanban-heading {
+  flex-direction: row;
+}
+
+.kanban-board {
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+}
+
+.kanban-heading-text {
+  color: #fff;
+  padding: .8rem 1.7rem;
+}
+
+.kanban-info {
+  color: #fff;
+  float: right;
+  text-align: right;
+  padding: 5px 40px 0 0;
+  font-size: 15px;
+}
+
+.kanban-block, .create-new-task-block {
+  width: 50%;
+  min-width: 14rem;
+  min-height: 3.5rem;
+  border: 1px solid #6588e6;
+  padding: .6rem;
+  box-shadow: inset 2px 2px 5px gray;
+}
+
+.kanban-block strong {
+  text-align: center;
+}
+
+#todo {
+  background-color: #fff;
+  border-radius: 0 0 0 30px;
+}
+
+#inprogress {
+  background-color: #f5f5f5;
+}
+
+#done {
+  background-color: #fff;
+  border-radius: 0 0 30px;
+}
+
+.task {
+  background-color: #fff;
+  border: .1rem solid #000;
+  border-radius: .2rem;
+  margin: .2rem 0 .3rem;
+  padding: .5rem .2rem .5rem .5rem;
+  font-size: 15px;
+}
+
+#task-button {
+  width: 50%;
+  color: #6588e6;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #6588e6;
+  border-radius: .3rem;
+  margin: .2rem 0 .1rem;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.create-new-task-block {
+  width: 64.4%;
+  background-color: #fff;
+  border-radius: 0 0 30px;
+  flex-direction: column;
+  display: none;
+  box-shadow: inset 2px 2px 5px gray;
+}
+
+.form-row {
+  flex-direction: row;
+  margin: .2rem;
+  display: flex;
+}
+
+.form-row-label {
+  width: 22%;
+  background-color: #d1d0d6;
+  border: none;
+  border-right-width: 0;
+  border-radius: .2rem 0 0 .2rem;
+  padding: .2rem .5rem .2rem .2rem;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.form-row-input {
+  width: 85%;
+  border: 1px solid #d1d0d6;
+  border-radius: 0 .2rem .2rem 0;
+  font-size: 15px;
+}
+
+.form-row-buttons {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: .2rem;
+  display: flex;
+}
+
+#edit-button, #save-button {
+  float: left;
+  cursor: pointer;
+  color: #fff;
+  width: 70px;
+  background-color: #6588e6;
+  border: none;
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 6px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+#cancel-button {
+  color: #fff;
+  cursor: pointer;
+  width: 70px;
+  background-color: #d1d0d6;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+#edit-button {
+  display: none;
 }
 
 /*# sourceMappingURL=index.c74267d1.css.map */

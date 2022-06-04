@@ -527,8 +527,9 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"2OD7o":[function(require,module,exports) {
 var _tasklist = require("./components/tasklist");
+var _kanban = require("./components/kanban");
 
-},{"./components/tasklist":"5i9SJ"}],"5i9SJ":[function(require,module,exports) {
+},{"./components/tasklist":"5i9SJ","./components/kanban":"5fGXv"}],"5i9SJ":[function(require,module,exports) {
 // Basic form DOM elements
 const form = document.getElementById("taskform");
 const button = document.querySelector("#taskform > button");
@@ -564,30 +565,38 @@ function addTask(taskDescription, dueDate, priorityRating) {
     };
     taskListArray.push(task);
     console.log(taskListArray);
-    renderTask(task);
+    renderTaskList(task);
 }
 // Function to display task on screen
-function renderTask(task1) {
+function renderTaskList(taskList) {
     // Call function - checks if a task has been added
     updateEmpty();
     // Create HTML elements
     let item = document.createElement("li");
-    item.style.cssText = 'padding: 0px 5px 0px 5px; text-align:left; border:2px solid #799bf7; border-radius:5px; list-style:none; margin:5px;';
-    item.setAttribute('data-id', task1.id);
-    item.innerHTML = "<p><b>" + task1.taskDescription + "</b>" + "<br/>" + "DUE: " + task1.dueDate + "<br/>" + "PRIORITY: " + task1.priorityRating + "</p>";
+    item.className = "taskListItem";
+    item.setAttribute('data-id', taskList.id);
+    item.innerHTML = "<p><b>" + taskList.taskDescription + "</b>" + "<br/>" + "DUE: " + taskList.dueDate + "<br/>" + "PRIORITY: " + taskList.priorityRating + "</p>";
     tasklist.appendChild(item);
     // Extra Task DOM elements
     let delButton = document.createElement("button");
     let delButtonText = document.createTextNode("Delete");
-    delButton.style.cssText = 'border:none; font-weight:bolder; background-color: #D1D0D6; color:white; cursor:pointer; border-radius: 5px; margin:5px 0px 5px 0px;';
+    delButton.className = "delButton";
     delButton.appendChild(delButtonText);
     item.appendChild(delButton);
     let expandButton = document.createElement("button");
     expandButton.className = "expand";
-    expandButton.style.cssText = 'border: solid 1px #6588E6; border-radius: 5px; background-color: white; color: #6588E6; font-size: 120%; font-weight: bolder; float:right; cursor:pointer;';
+    expandButton.className = "expandBtn";
     let expandButtonText = document.createTextNode("+");
     expandButton.appendChild(expandButtonText);
     item.appendChild(expandButton);
+    function show() {
+        var s = document.getElementById("kanban");
+        s.style.display = "block";
+    }
+    expandButton.addEventListener('click', function(e) {
+        renderKanban(taskList);
+        show();
+    });
     // Event Listeners for DOM elements
     delButton.addEventListener("click", function(event) {
         event.preventDefault();
@@ -621,14 +630,77 @@ for(i = 0; i < coll.length; i++)coll[i].addEventListener("click", function() {
     if (content.style.maxHeight) content.style.maxHeight = null;
     else content.style.maxHeight = content.scrollHeight + "px";
 });
-var open = document.getElementsByClassName("expand");
-var j;
-for(j = 0; j < open.length; j++)open[j].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var kanban = this.nextElementSibling;
-    if (kanban.style.maxHeight) kanban.style.maxHeight = null;
-    else kanban.style.maxHeight = kanban.scrollHeight + "px";
-});
+
+},{}],"5fGXv":[function(require,module,exports) {
+var currentTaskList;
+function renderKanban(taskList) {
+    currentTaskList = taskList;
+    let heading = document.getElementById("kanbanHeading");
+    heading.innerHTML = taskList.taskDescription;
+    let info = document.getElementById("kanbanInfo");
+    info.innerHTML = "Due: <i>" + taskList.dueDate + "</i>" + " " + "Priority :" + "<i>" + taskList.priorityRating + "</i>";
+}
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.currentTarget.appendChild(document.getElementById(data));
+}
+function createTask() {
+    var x = document.getElementById("inprogress");
+    var y = document.getElementById("done");
+    var z = document.getElementById("create-new-task-block");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "block";
+        z.style.display = "none";
+    } else {
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "flex";
+    }
+}
+function saveTask() {
+    // var saveButton = document.getElementById("save-button");
+    // var editButton = document.getElementById("edit-button");
+    // if (saveButton.style.display === "none") {
+    //     saveButton.style.display = "block";
+    //     editButton.style.display = "none";
+    // } else{
+    //     saveButton.style.display = "none";
+    //     editButton.style.display = "block";
+    // }
+    var taskName = document.getElementById("task-name").value;
+    var taskStatus = document.getElementById("task-status").value;
+    var column = document.getElementById(taskStatus);
+    column.innerHTML += `
+    <div class="task" id="${taskName.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
+        <span>${taskName}</span>
+    </div>
+    `;
+    if (!currentTaskList.tasks) currentTaskList.tasks = [];
+    currentTaskList.tasks.push({
+        'todo': todo,
+        'taskName': taskName,
+        'status': taskStatus
+    });
+}
+function editTask() {
+    var saveButton = document.getElementById("save-button");
+    var editButton = document.getElementById("edit-button");
+    if (saveButton.style.display === "none") {
+        saveButton.style.display = "block";
+        editButton.style.display = "none";
+    } else {
+        saveButton.style.display = "none";
+        editButton.style.display = "block";
+    }
+}
 
 },{}]},["2xDT7","2OD7o"], "2OD7o", "parcelRequire60da")
 
